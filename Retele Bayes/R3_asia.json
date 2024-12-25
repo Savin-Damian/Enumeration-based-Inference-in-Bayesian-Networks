@@ -1,0 +1,71 @@
+{
+    "nodes": [
+      {
+        "name": "Visit to Asia",
+        "probabilities": {
+          "Da": 0.01,
+          "Nu": 0.99
+        }
+      },
+      {
+        "name": "Smoker",
+        "probabilities": {
+          "Da": 0.5,
+          "Nu": 0.5
+        }
+      },
+      {
+        "name": "Has Tuberculosis",
+        "parents": ["Visit to Asia"],
+        "probabilities": {
+          "Visit to Asia=Da": {"Da": 0.05, "Nu": 0.95},
+          "Visit to Asia=Nu": {"Da": 0.01, "Nu": 0.99}
+        }
+      },
+      {
+        "name": "Has Lung Cancer",
+        "parents": ["Smoker"],
+        "probabilities": {
+          "Smoker=Da": {"Da": 0.10, "Nu": 0.90},
+          "Smoker=Nu": {"Da": 0.01, "Nu": 0.99}
+        }
+      },
+      {
+        "name": "Has Bronchitis",
+        "parents": ["Smoker"],
+        "probabilities": {
+          "Smoker=Da": {"Da": 0.60, "Nu": 0.40},
+          "Smoker=Nu": {"Da": 0.30, "Nu": 0.70}
+        }
+      },
+      {
+        "name": "Tuberculosis or Cancer",
+        "parents": ["Has Tuberculosis", "Has Lung Cancer"],
+        "probabilities": {
+          "Has Tuberculosis=Da,Has Lung Cancer=Da": {"Da": 1.0, "Nu": 0.0},
+          "Has Tuberculosis=Da,Has Lung Cancer=Nu": {"Da": 1.0, "Nu": 0.0},
+          "Has Tuberculosis=Nu,Has Lung Cancer=Da": {"Da": 1.0, "Nu": 0.0},
+          "Has Tuberculosis=Nu,Has Lung Cancer=Nu": {"Da": 0.0, "Nu": 1.0}
+        }
+      },
+      {
+        "name": "Dyspnea",
+        "parents": ["Tuberculosis or Cancer", "Has Bronchitis"],
+        "probabilities": {
+          "Tuberculosis or Cancer=Da,Has Bronchitis=Da": {"Da": 0.9, "Nu": 0.1},
+          "Tuberculosis or Cancer=Da,Has Bronchitis=Nu": {"Da": 0.7, "Nu": 0.3},
+          "Tuberculosis or Cancer=Nu,Has Bronchitis=Da": {"Da": 0.8, "Nu": 0.2},
+          "Tuberculosis or Cancer=Nu,Has Bronchitis=Nu": {"Da": 0.1, "Nu": 0.9}
+        }
+      },
+      {
+        "name": "XRay Result",
+        "parents": ["Tuberculosis or Cancer"],
+        "probabilities": {
+          "Tuberculosis or Cancer=Da": {"Da": 0.98, "Nu": 0.02},
+          "Tuberculosis or Cancer=Nu": {"Da": 0.05, "Nu": 0.95}
+        }
+      }
+    ]
+}
+  
