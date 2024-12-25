@@ -28,16 +28,16 @@
         "name": "JohnCalls",
         "parents": ["Alarm"],
         "probabilities": {
-          "Febra=Da": {"Da": 0.90, "Nu": 0.10},
-          "Febra=Nu": {"Da": 0.05, "Nu": 0.95}
+          "Alarm=Da": {"Da": 0.90, "Nu": 0.10},
+          "Alarm=Nu": {"Da": 0.05, "Nu": 0.95}
         }
       },
       {
         "name": "MaryCalls",
         "parents": ["Alarm"],
         "probabilities": {
-          "Febra=Da": {"Da": 0.70, "Nu": 0.30},
-          "Febra=Nu": {"Da": 0.01, "Nu": 0.99}
+          "Alarm=Da": {"Da": 0.70, "Nu": 0.30},
+          "Alarm=Nu": {"Da": 0.01, "Nu": 0.99}
         }
       }
     ]
