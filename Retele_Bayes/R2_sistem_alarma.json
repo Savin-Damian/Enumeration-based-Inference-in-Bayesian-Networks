@@ -1,0 +1,81 @@
+{
+  "nodes": [
+    {
+      "name": "Burglary",
+      "parents": [],
+      "probabilities": [
+        {
+          "Da": 0.001,
+          "Nu": 0.999
+        }
+      ]
+    },
+    {
+      "name": "Earthquake",
+      "parents": [],
+      "probabilities": [
+        {
+          "Da": 0.002,
+          "Nu": 0.998
+        }
+      ]
+    },
+    {
+      "name": "Alarm",
+      "parents": [
+        "Burglary",
+        "Earthquake"
+      ],
+      "probabilities": [
+        {
+          "Da": 0.95,
+          "Nu": 0.05
+        },
+        {
+          "Da": 0.94,
+          "Nu": 0.06
+        },
+        {
+          "Da": 0.29,
+          "Nu": 0.71
+        },
+        {
+          "Da": 0.001,
+          "Nu": 0.999
+        }
+      ]
+    },
+    {
+      "name": "JohnCalls",
+      "parents": [
+        "Alarm"
+      ],
+      "probabilities": [
+        {
+          "Da": 0.90,
+          "Nu": 0.10
+        },
+        {
+          "Da": 0.05,
+          "Nu": 0.95
+        }
+      ]
+    },
+    {
+      "name": "MaryCalls",
+      "parents": [
+        "Alarm"
+      ],
+      "probabilities": [
+        {
+          "Da": 0.70,
+          "Nu": 0.30
+        },
+        {
+          "Da": 0.01,
+          "Nu": 0.99
+        }
+      ]
+    }
+  ]
+}

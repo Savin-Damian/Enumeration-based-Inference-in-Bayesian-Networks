@@ -52,25 +52,24 @@
             this.panToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.networkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queryModesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.briefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verboseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.promptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.decimalPlacesForMonitoringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.beliefDecisionModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beliefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decisionNetworkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.legendForNodesEdgesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineTutorialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutThisToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.briefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verboseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.promptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.beliefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decisionNetworkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +95,7 @@
             this.loadFromFileToolStripMenuItem.Name = "loadFromFileToolStripMenuItem";
             this.loadFromFileToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.loadFromFileToolStripMenuItem.Text = "Load from File";
+            this.loadFromFileToolStripMenuItem.Click += new System.EventHandler(this.loadFromFile_Click);
             // 
             // saveFileToolStripMenuItem
             // 
@@ -151,14 +151,14 @@
             this.medium12PtToolStripMenuItem,
             this.small8PtToolStripMenuItem});
             this.fontSizeToolStripMenuItem.Name = "fontSizeToolStripMenuItem";
-            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.fontSizeToolStripMenuItem.Text = "Font Size";
             // 
             // extraLarge30ptToolStripMenuItem
             // 
             this.extraLarge30ptToolStripMenuItem.CheckOnClick = true;
             this.extraLarge30ptToolStripMenuItem.Name = "extraLarge30ptToolStripMenuItem";
-            this.extraLarge30ptToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.extraLarge30ptToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.extraLarge30ptToolStripMenuItem.Text = "Extra Large (30 pt)";
             this.extraLarge30ptToolStripMenuItem.Click += new System.EventHandler(this.extraLarge30ptToolStripMenuItem_Click);
             // 
@@ -166,21 +166,21 @@
             // 
             this.large20ptToolStripMenuItem.CheckOnClick = true;
             this.large20ptToolStripMenuItem.Name = "large20ptToolStripMenuItem";
-            this.large20ptToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.large20ptToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.large20ptToolStripMenuItem.Text = "Large (20 pt)";
             // 
             // medium12PtToolStripMenuItem
             // 
             this.medium12PtToolStripMenuItem.CheckOnClick = true;
             this.medium12PtToolStripMenuItem.Name = "medium12PtToolStripMenuItem";
-            this.medium12PtToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.medium12PtToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.medium12PtToolStripMenuItem.Text = "Medium (12 pt)";
             // 
             // small8PtToolStripMenuItem
             // 
             this.small8PtToolStripMenuItem.CheckOnClick = true;
             this.small8PtToolStripMenuItem.Name = "small8PtToolStripMenuItem";
-            this.small8PtToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.small8PtToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.small8PtToolStripMenuItem.Text = "Small (8 pt)";
             this.small8PtToolStripMenuItem.Click += new System.EventHandler(this.small8PtToolStripMenuItem_Click);
             // 
@@ -191,7 +191,7 @@
             this.mediumToolStripMenuItem,
             this.narrowToolStripMenuItem});
             this.lineWidthToolStripMenuItem.Name = "lineWidthToolStripMenuItem";
-            this.lineWidthToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.lineWidthToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.lineWidthToolStripMenuItem.Text = "Line Width";
             // 
             // wideToolStripMenuItem
@@ -215,7 +215,7 @@
             // autoscaleToolStripMenuItem
             // 
             this.autoscaleToolStripMenuItem.Name = "autoscaleToolStripMenuItem";
-            this.autoscaleToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.autoscaleToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.autoscaleToolStripMenuItem.Text = "Autoscale";
             // 
             // panZoomToolStripMenuItem
@@ -224,21 +224,21 @@
             this.zoomToolStripMenuItem,
             this.panToolStripMenuItem});
             this.panZoomToolStripMenuItem.Name = "panZoomToolStripMenuItem";
-            this.panZoomToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.panZoomToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.panZoomToolStripMenuItem.Text = "Pan/Zoom";
             // 
             // zoomToolStripMenuItem
             // 
             this.zoomToolStripMenuItem.CheckOnClick = true;
             this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
-            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(162, 34);
             this.zoomToolStripMenuItem.Text = "Zoom";
             // 
             // panToolStripMenuItem
             // 
             this.panToolStripMenuItem.CheckOnClick = true;
             this.panToolStripMenuItem.Name = "panToolStripMenuItem";
-            this.panToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.panToolStripMenuItem.Size = new System.Drawing.Size(162, 34);
             this.panToolStripMenuItem.Text = "Pan";
             // 
             // networkToolStripMenuItem
@@ -261,6 +261,28 @@
             this.queryModesToolStripMenuItem.Size = new System.Drawing.Size(352, 34);
             this.queryModesToolStripMenuItem.Text = "Query Modes";
             // 
+            // briefToolStripMenuItem
+            // 
+            this.briefToolStripMenuItem.CheckOnClick = true;
+            this.briefToolStripMenuItem.Name = "briefToolStripMenuItem";
+            this.briefToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+            this.briefToolStripMenuItem.Text = "Brief Query Modes";
+            // 
+            // verboseToolStripMenuItem
+            // 
+            this.verboseToolStripMenuItem.CheckOnClick = true;
+            this.verboseToolStripMenuItem.Name = "verboseToolStripMenuItem";
+            this.verboseToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+            this.verboseToolStripMenuItem.Text = "Verbose Query Modes";
+            this.verboseToolStripMenuItem.Click += new System.EventHandler(this.verboseToolStripMenuItem_Click);
+            // 
+            // promptToolStripMenuItem
+            // 
+            this.promptToolStripMenuItem.CheckOnClick = true;
+            this.promptToolStripMenuItem.Name = "promptToolStripMenuItem";
+            this.promptToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
+            this.promptToolStripMenuItem.Text = "Prompt Query Modes";
+            // 
             // decimalPlacesForMonitoringToolStripMenuItem
             // 
             this.decimalPlacesForMonitoringToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -273,6 +295,41 @@
             this.decimalPlacesForMonitoringToolStripMenuItem.Size = new System.Drawing.Size(352, 34);
             this.decimalPlacesForMonitoringToolStripMenuItem.Text = "Decimal Places for Monitoring";
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.CheckOnClick = true;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 34);
+            this.toolStripMenuItem2.Text = "1";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.CheckOnClick = true;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(124, 34);
+            this.toolStripMenuItem3.Text = "2";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.CheckOnClick = true;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(124, 34);
+            this.toolStripMenuItem4.Text = "3";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.CheckOnClick = true;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(124, 34);
+            this.toolStripMenuItem5.Text = "4";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.CheckOnClick = true;
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(124, 34);
+            this.toolStripMenuItem6.Text = "5";
+            // 
             // beliefDecisionModeToolStripMenuItem
             // 
             this.beliefDecisionModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -281,6 +338,20 @@
             this.beliefDecisionModeToolStripMenuItem.Name = "beliefDecisionModeToolStripMenuItem";
             this.beliefDecisionModeToolStripMenuItem.Size = new System.Drawing.Size(352, 34);
             this.beliefDecisionModeToolStripMenuItem.Text = "Belief/Decision Mode";
+            // 
+            // beliefToolStripMenuItem
+            // 
+            this.beliefToolStripMenuItem.CheckOnClick = true;
+            this.beliefToolStripMenuItem.Name = "beliefToolStripMenuItem";
+            this.beliefToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
+            this.beliefToolStripMenuItem.Text = "Belief Network Mode";
+            // 
+            // decisionNetworkModeToolStripMenuItem
+            // 
+            this.decisionNetworkModeToolStripMenuItem.CheckOnClick = true;
+            this.decisionNetworkModeToolStripMenuItem.Name = "decisionNetworkModeToolStripMenuItem";
+            this.decisionNetworkModeToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
+            this.decisionNetworkModeToolStripMenuItem.Text = "Decision Network Mode";
             // 
             // helpToolStripMenuItem
             // 
@@ -333,90 +404,11 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // briefToolStripMenuItem
-            // 
-            this.briefToolStripMenuItem.CheckOnClick = true;
-            this.briefToolStripMenuItem.Name = "briefToolStripMenuItem";
-            this.briefToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
-            this.briefToolStripMenuItem.Text = "Brief Query Modes";
-            // 
-            // verboseToolStripMenuItem
-            // 
-            this.verboseToolStripMenuItem.CheckOnClick = true;
-            this.verboseToolStripMenuItem.Name = "verboseToolStripMenuItem";
-            this.verboseToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
-            this.verboseToolStripMenuItem.Text = "Verbose Query Modes";
-            this.verboseToolStripMenuItem.Click += new System.EventHandler(this.verboseToolStripMenuItem_Click);
-            // 
-            // promptToolStripMenuItem
-            // 
-            this.promptToolStripMenuItem.CheckOnClick = true;
-            this.promptToolStripMenuItem.Name = "promptToolStripMenuItem";
-            this.promptToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
-            this.promptToolStripMenuItem.Text = "Prompt Query Modes";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.CheckOnClick = true;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
-            this.toolStripMenuItem2.Text = "1";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.CheckOnClick = true;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(270, 34);
-            this.toolStripMenuItem3.Text = "2";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.CheckOnClick = true;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(270, 34);
-            this.toolStripMenuItem4.Text = "3";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.CheckOnClick = true;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(270, 34);
-            this.toolStripMenuItem5.Text = "4";
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.CheckOnClick = true;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(270, 34);
-            this.toolStripMenuItem6.Text = "5";
-            // 
-            // beliefToolStripMenuItem
-            // 
-            this.beliefToolStripMenuItem.CheckOnClick = true;
-            this.beliefToolStripMenuItem.Name = "beliefToolStripMenuItem";
-            this.beliefToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
-            this.beliefToolStripMenuItem.Text = "Belief Network Mode";
-            // 
-            // decisionNetworkModeToolStripMenuItem
-            // 
-            this.decisionNetworkModeToolStripMenuItem.CheckOnClick = true;
-            this.decisionNetworkModeToolStripMenuItem.Name = "decisionNetworkModeToolStripMenuItem";
-            this.decisionNetworkModeToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
-            this.decisionNetworkModeToolStripMenuItem.Text = "Decision Network Mode";
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(0, 36);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1395, 829);
-            this.panel1.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1395, 867);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -471,7 +463,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem beliefToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem decisionNetworkModeToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
     }
 }
 

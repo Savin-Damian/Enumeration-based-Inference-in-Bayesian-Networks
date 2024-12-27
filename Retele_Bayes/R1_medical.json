@@ -1,0 +1,81 @@
+{
+  "nodes": [
+    {
+      "name": "Gripa",
+      "parents": [],
+      "probabilities": [
+        {
+          "Da": 0.1,
+          "Nu": 0.9
+        }
+      ]
+    },
+    {
+      "name": "Abces",
+      "parents": [],
+      "probabilities": [
+        {
+          "Da": 0.05,
+          "Nu": 0.95
+        }
+      ]
+    },
+    {
+      "name": "Febra",
+      "parents": [
+        "Gripa",
+        "Abces"
+      ],
+      "probabilities": [
+        {
+          "Da": 0.8,
+          "Nu": 0.2
+        },
+        {
+          "Da": 0.7,
+          "Nu": 0.3
+        },
+        {
+          "Da": 0.25,
+          "Nu": 0.75
+        },
+        {
+          "Da": 0.05,
+          "Nu": 0.95
+        }
+      ]
+    },
+    {
+      "name": "Oboseala",
+      "parents": [
+        "Febra"
+      ],
+      "probabilities": [
+        {
+          "Da": 0.6,
+          "Nu": 0.4
+        },
+        {
+          "Da": 0.2,
+          "Nu": 0.8
+        }
+      ]
+    },
+    {
+      "name": "Anorexie",
+      "parents": [
+        "Febra"
+      ],
+      "probabilities": [
+        {
+          "Da": 0.1,
+          "Nu": 0.9
+        },
+        {
+          "Da": 0.01,
+          "Nu": 0.99
+        }
+      ]
+    }
+  ]
+}

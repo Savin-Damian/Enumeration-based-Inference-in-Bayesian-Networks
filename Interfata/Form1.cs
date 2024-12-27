@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
 using System.Windows.Forms;
+
 
 namespace WindowsFormsApp1
 {
@@ -19,7 +14,7 @@ namespace WindowsFormsApp1
 
         private void viewEditToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,12 +29,36 @@ namespace WindowsFormsApp1
 
         private void small8PtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void verboseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void loadFromFile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    try
+                    {
+                        var jsonData = System.IO.File.ReadAllText(filePath);
+                        var graphData = JsonConvert.DeserializeObject<GraphData>(jsonData);
+
+                        graphData.PrintInfo();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error loading file: {ex.Message}");
+                    }
+                }
+            }
         }
     }
 }
