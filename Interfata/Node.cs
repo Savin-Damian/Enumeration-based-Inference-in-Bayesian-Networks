@@ -8,10 +8,4 @@ namespace WindowsFormsApp1
         public List<string> parents { get; set; }
         public List<Probability> probabilities { get; set; }
     }
-
-    public class Probability
-    {
-        public double Da { get; set; }
-        public double Nu { get; set; }
-    }
 }

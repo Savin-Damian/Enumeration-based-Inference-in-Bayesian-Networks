@@ -87,7 +87,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GraphData.cs" />
+    <Compile Include="GraphLayout.cs" />
+    <Compile Include="GraphRenderer.cs" />
     <Compile Include="Node.cs" />
+    <Compile Include="Probability.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
