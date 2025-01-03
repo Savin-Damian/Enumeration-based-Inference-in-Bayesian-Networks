@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Windows.Forms;
 using System.Drawing;
@@ -10,19 +10,22 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private PictureBox pictureBox;
-        private GraphData graphData;
-        private GraphRenderer graphRenderer = new GraphRenderer();
+        private PictureBox _pictureBox;
+        private GraphData _graphData;
+        private GraphRenderer _graphRenderer = new GraphRenderer();
+
+        private Dictionary<string, string> _nodeValues = new Dictionary<string, string>();
+        private bool _button1Clicked = false;
         public Form1()
         {
             InitializeComponent();
-            pictureBox = new PictureBox
+            _pictureBox = new PictureBox
             {
                 Dock = DockStyle.Fill,
                 BackColor = Color.White
             };
-            this.Controls.Add(pictureBox);
-            pictureBox.MouseClick += mouseClick;
+            this.Controls.Add(_pictureBox);
+            _pictureBox.MouseClick += mouseClick;
         }
 
         public Dictionary<string, Rectangle> nodeBounds = new Dictionary<string, Rectangle>();
@@ -35,7 +38,7 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            if (graphData == null || graphData.Nodes == null)
+            if (_graphData == null || _graphData.Nodes == null)
             {
                 MessageBox.Show("Graph data is not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -46,10 +49,18 @@ namespace WindowsFormsApp1
                 if (kvp.Value.Contains(e.Location))
                 {
                     // Find the node by name
-                    var node = graphData.Nodes.FirstOrDefault(n => n.name == kvp.Key);
+                    var node = _graphData.Nodes.FirstOrDefault(n => n.name == kvp.Key);
+
                     if (node != null)
                     {
-                        graphData.ShowInfo(node); // Call ShowInfo on the clicked node
+                        if (_button1Clicked)
+                        {
+                            ShowMenu(node, e.Location); 
+                        }
+                        else
+                        {
+                            _graphData.ShowInfo(node); // Call ShowInfo on the clicked node
+                        }
                     }
                     else
                     {
@@ -58,12 +69,8 @@ namespace WindowsFormsApp1
                     return;
                 }
             }
-
             MessageBox.Show("You clicked outside of any nodes.", "Click Detected", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
-
 
         private void viewEditToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -102,11 +109,11 @@ namespace WindowsFormsApp1
                     try
                     {
                         var jsonData = System.IO.File.ReadAllText(filePath);
-                        graphData = JsonConvert.DeserializeObject<GraphData>(jsonData);
+                        _graphData = JsonConvert.DeserializeObject<GraphData>(jsonData);
 
-                        if (graphData != null && graphData.Nodes != null)
+                        if (_graphData != null && _graphData.Nodes != null)
                         {
-                            graphRenderer.DrawGraph(pictureBox, graphData);
+                            _graphRenderer.DrawGraph(_pictureBox, _graphData);
                         }
                         else   
                         {
@@ -120,5 +127,101 @@ namespace WindowsFormsApp1
                 }
             }
         }
+        private void ShowMenu(Node node, Point location)
+        {
+
+            Form dropdownForm = new Form
+            {
+                StartPosition = FormStartPosition.Manual,
+                Location = this.PointToScreen(location),
+                Size = new Size(200, 150),
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false,
+                Text = $"Observation for {node.name}" 
+            };
+
+            var comboBox = new ComboBox
+            {
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Items = { "<none>", "T", "F" },
+                Location = new Point(10, 10),
+                Width = 150
+            };
+
+            var okButton = new Button
+            {
+                Text = "OK",
+                Location = new Point(60, 50),
+                DialogResult = DialogResult.OK
+            };
+
+            dropdownForm.Controls.Add(comboBox);
+            dropdownForm.Controls.Add(okButton);
+
+            if (dropdownForm.ShowDialog() == DialogResult.OK)
+            {
+                var selectedValue = comboBox.SelectedItem?.ToString() ?? "<none>";
+
+                if (_nodeValues.ContainsKey(node.name))
+                {
+                    _nodeValues[node.name] = selectedValue;
+                }
+                else
+                {
+                    _nodeValues.Add(node.name, selectedValue);
+                }
+
+                MessageBox.Show($"Valoare selectata pentru nodul '{node.name}':  {selectedValue}");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _button1Clicked = true;
+            if (_graphData == null || _graphData.Nodes == null)
+            {
+                MessageBox.Show("Graph data is not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string result = "Node values:\n";
+            foreach (var node in _graphData.Nodes)
+            {
+                string value = _nodeValues.ContainsKey(node.name) ? _nodeValues[node.name] : "<not set>";
+                result += $"Node: {node.name}, Value: {value}\n";
+            }
+
+            MessageBox.Show(result, "Node Values", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _button1Clicked = false;
+            if (_graphData == null || _graphData.Nodes == null)
+            {
+                MessageBox.Show("Graph data is not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            foreach (var node in _graphData.Nodes)
+            {
+                _nodeValues[node.name] = "<not set>";
+            }
+            MessageBox.Show("S-au resetat valorile cu succes! \n");
+
+        }
+
+        private void quit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void about_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Artificial Intelligence\n Copyright \n Savin Damian \n Spiridon Ioan \n 1406A");
+        }
+
     }
 }

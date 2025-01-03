@@ -6,21 +6,21 @@ namespace WindowsFormsApp1
 {
     internal class GraphLayout
     {
-        private static Dictionary<string, Point> positions;
-        private static Dictionary<string, int> levelMapping;
+        private static Dictionary<string, Point> _positions;
+        private static Dictionary<string, int> _levelMapping;
         public static Dictionary<string, Point> CalculateNodePositions(GraphData graphData, int width, int height)
         {
-            positions = new Dictionary<string, Point>();
-            levelMapping = new Dictionary<string, int>();
+            _positions = new Dictionary<string, Point>();
+            _levelMapping = new Dictionary<string, int>();
 
             //aflam nivelurile
             foreach (var node in graphData.Nodes)
             {
-                CalculateLevel(node, graphData, levelMapping);
+                CalculateLevel(node, graphData, _levelMapping);
             }
 
             //punem nodurile pe niveluri
-            var levels = levelMapping.GroupBy(kvp => kvp.Value).OrderBy(group => group.Key).ToDictionary(group => group.Key,
+            var levels = _levelMapping.GroupBy(kvp => kvp.Value).OrderBy(group => group.Key).ToDictionary(group => group.Key,
                                                     group => group.Select(kvp => kvp.Key).ToList());
 
             int verticalSpacing = height / (levels.Count + 1);
@@ -34,11 +34,11 @@ namespace WindowsFormsApp1
                 for (int i = 0; i < level.Value.Count; i++)
                 {
                     var x = xSpacing * (i + 1);
-                    positions[level.Value[i]] = new Point(x - 40, y - 25);
+                    _positions[level.Value[i]] = new Point(x - 40, y - 25);
                 }
             }
 
-            return positions;
+            return _positions;
         }
 
         private static int CalculateLevel(Node node, GraphData graphData, Dictionary<string, int> levelMapping)

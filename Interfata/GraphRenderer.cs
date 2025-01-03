@@ -6,26 +6,26 @@ namespace WindowsFormsApp1
 {
     internal class GraphRenderer
     {
-        private static Graphics graphics;
-        private static Font nodeFont;
-        private static Brush nodeBrush;
-        private static Brush textBrush;
-        private static Pen pen;
-        private static Form1 form;
+        private static Graphics _graphics;
+        private static Font _nodeFont; 
+        private static Brush _nodeBrush;
+        private static Brush _textBrush;
+        private static Pen _pen;
+        private static Form1 _form;
         public void DrawGraph(PictureBox pictureBox, GraphData graphData)
         {
-            form = (Form1)pictureBox.FindForm();
-            form.nodeBounds.Clear(); // Clear previous bounds
+            _form = (Form1)pictureBox.FindForm();
+            _form.nodeBounds.Clear(); // Clear previous bounds
 
             pictureBox.Paint += (s, e) =>
             {
-                graphics = e.Graphics;
-                graphics.Clear(Color.White);
+                _graphics = e.Graphics;
+                _graphics.Clear(Color.White);
 
-                nodeFont = new Font("TimesNewRoman", 10, FontStyle.Bold);
-                nodeBrush = Brushes.LightBlue;
-                textBrush = Brushes.Black;
-                pen = new Pen(Color.Black, 2);
+                _nodeFont = new Font("TimesNewRoman", 10, FontStyle.Bold);
+                _nodeBrush = Brushes.LightBlue;
+                _textBrush = Brushes.Black;
+                _pen = new Pen(Color.Black, 2);
 
                 var positions = GraphLayout.CalculateNodePositions(graphData, pictureBox.Width, pictureBox.Height);
 
@@ -36,15 +36,15 @@ namespace WindowsFormsApp1
 
                     // Node rectangle
                     var rect = new Rectangle(position.X, position.Y, 80, 50);
-                    graphics.FillEllipse(nodeBrush, rect);
-                    graphics.DrawEllipse(pen, rect);
+                    _graphics.FillEllipse(_nodeBrush, rect);
+                    _graphics.DrawEllipse(_pen, rect);
 
                     // Store node bounds
-                    form.nodeBounds[node.name] = rect;
+                    _form.nodeBounds[node.name] = rect;
 
                     // Draw node text
-                    var stringSize = graphics.MeasureString(node.name, nodeFont);
-                    graphics.DrawString(node.name, nodeFont, textBrush,
+                    var stringSize = _graphics.MeasureString(node.name, _nodeFont);
+                    _graphics.DrawString(node.name, _nodeFont, _textBrush,
                         position.X + 40 - stringSize.Width / 2,
                         position.Y + 25 - stringSize.Height / 2);
                 }
@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
 
         private static void DrawArrow(Point start, Point end)
         {
-            graphics.DrawLine(pen, start, end);
+            _graphics.DrawLine(_pen, start, end);
 
             //directia sagetii 
             var direction = new Point(end.X - start.X, end.Y - start.Y);
@@ -88,7 +88,7 @@ namespace WindowsFormsApp1
             var rightEnd = new PointF(
                 end.X - arrowSize * (float)(Math.Cos(-angle) * unitDirection.X - Math.Sin(-angle) * unitDirection.Y),
                 end.Y - arrowSize * (float)(Math.Sin(-angle) * unitDirection.X + Math.Cos(-angle) * unitDirection.Y));
-            graphics.FillPolygon(Brushes.Black, new[] { end, leftEnd, rightEnd });
+            _graphics.FillPolygon(Brushes.Black, new[] { end, leftEnd, rightEnd });
         }
     }
 }
