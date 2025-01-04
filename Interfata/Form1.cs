@@ -14,8 +14,11 @@ namespace WindowsFormsApp1
         private GraphData _graphData;
         private GraphRenderer _graphRenderer = new GraphRenderer();
 
-        private Dictionary<string, string> _nodeValues = new Dictionary<string, string>();
+        private Dictionary<string, string> _nodeValues = new Dictionary<string, string>(); // to check T / F / <none> for every node
+        public Dictionary<string, Rectangle> nodeBounds = new Dictionary<string, Rectangle>(); // to show info of every node
         private bool _button1Clicked = false;
+        private bool _queryClicked = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace WindowsFormsApp1
             _pictureBox.MouseClick += mouseClick;
         }
 
-        public Dictionary<string, Rectangle> nodeBounds = new Dictionary<string, Rectangle>();
+        
 
         private void mouseClick(object sender, MouseEventArgs e)
         {
@@ -59,7 +62,14 @@ namespace WindowsFormsApp1
                         }
                         else
                         {
-                            _graphData.ShowInfo(node); // Call ShowInfo on the clicked node
+                            if (_queryClicked)
+                            {
+                                _graphData.CalculateProbability(_nodeValues, _graphData);
+                            }
+                            else
+                            {
+                                _graphData.ShowInfo(node); // Call ShowInfo on the clicked node
+                            }
                         }
                     }
                     else
@@ -70,6 +80,12 @@ namespace WindowsFormsApp1
                 }
             }
             MessageBox.Show("You clicked outside of any nodes.", "Click Detected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Query_Click(object sender, EventArgs e)
+        {
+            _queryClicked = true;
+            _button1Clicked = false;
         }
 
         private void viewEditToolStripMenuItem_Click(object sender, EventArgs e)

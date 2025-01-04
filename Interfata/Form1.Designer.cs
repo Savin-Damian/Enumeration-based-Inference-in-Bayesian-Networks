@@ -86,32 +86,32 @@ namespace WindowsFormsApp1
             this.saveFileToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // createNewGraphToolStripMenuItem
             // 
             this.createNewGraphToolStripMenuItem.Name = "createNewGraphToolStripMenuItem";
-            this.createNewGraphToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.createNewGraphToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.createNewGraphToolStripMenuItem.Text = "Create New Graph";
             // 
             // loadFromFileToolStripMenuItem
             // 
             this.loadFromFileToolStripMenuItem.Name = "loadFromFileToolStripMenuItem";
-            this.loadFromFileToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.loadFromFileToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.loadFromFileToolStripMenuItem.Text = "Load from File";
             this.loadFromFileToolStripMenuItem.Click += new System.EventHandler(this.loadFromFile_Click);
             // 
             // saveFileToolStripMenuItem
             // 
             this.saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.saveFileToolStripMenuItem.Text = "Save Problem";
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quit_Click);
             // 
@@ -121,20 +121,20 @@ namespace WindowsFormsApp1
             this.viewEditToolStripMenuItem,
             this.viewEditGraphDescriptionToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // viewEditToolStripMenuItem
             // 
             this.viewEditToolStripMenuItem.Name = "viewEditToolStripMenuItem";
-            this.viewEditToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
+            this.viewEditToolStripMenuItem.Size = new System.Drawing.Size(346, 34);
             this.viewEditToolStripMenuItem.Text = "View/Edit Text Representation";
             this.viewEditToolStripMenuItem.Click += new System.EventHandler(this.viewEditToolStripMenuItem_Click);
             // 
             // viewEditGraphDescriptionToolStripMenuItem
             // 
             this.viewEditGraphDescriptionToolStripMenuItem.Name = "viewEditGraphDescriptionToolStripMenuItem";
-            this.viewEditGraphDescriptionToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
+            this.viewEditGraphDescriptionToolStripMenuItem.Size = new System.Drawing.Size(346, 34);
             this.viewEditGraphDescriptionToolStripMenuItem.Text = "View/Edit Graph Description";
             // 
             // viewToolStripMenuItem
@@ -145,7 +145,7 @@ namespace WindowsFormsApp1
             this.autoscaleToolStripMenuItem,
             this.panZoomToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.viewToolStripMenuItem.Text = "View";
             this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
@@ -157,14 +157,14 @@ namespace WindowsFormsApp1
             this.medium12PtToolStripMenuItem,
             this.small8PtToolStripMenuItem});
             this.fontSizeToolStripMenuItem.Name = "fontSizeToolStripMenuItem";
-            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.fontSizeToolStripMenuItem.Text = "Font Size";
             // 
             // extraLarge30ptToolStripMenuItem
             // 
             this.extraLarge30ptToolStripMenuItem.CheckOnClick = true;
             this.extraLarge30ptToolStripMenuItem.Name = "extraLarge30ptToolStripMenuItem";
-            this.extraLarge30ptToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.extraLarge30ptToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.extraLarge30ptToolStripMenuItem.Text = "Extra Large (30 pt)";
             this.extraLarge30ptToolStripMenuItem.Click += new System.EventHandler(this.extraLarge30ptToolStripMenuItem_Click);
             // 
@@ -172,21 +172,21 @@ namespace WindowsFormsApp1
             // 
             this.large20ptToolStripMenuItem.CheckOnClick = true;
             this.large20ptToolStripMenuItem.Name = "large20ptToolStripMenuItem";
-            this.large20ptToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.large20ptToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.large20ptToolStripMenuItem.Text = "Large (20 pt)";
             // 
             // medium12PtToolStripMenuItem
             // 
             this.medium12PtToolStripMenuItem.CheckOnClick = true;
             this.medium12PtToolStripMenuItem.Name = "medium12PtToolStripMenuItem";
-            this.medium12PtToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.medium12PtToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.medium12PtToolStripMenuItem.Text = "Medium (12 pt)";
             // 
             // small8PtToolStripMenuItem
             // 
             this.small8PtToolStripMenuItem.CheckOnClick = true;
             this.small8PtToolStripMenuItem.Name = "small8PtToolStripMenuItem";
-            this.small8PtToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.small8PtToolStripMenuItem.Size = new System.Drawing.Size(257, 34);
             this.small8PtToolStripMenuItem.Text = "Small (8 pt)";
             this.small8PtToolStripMenuItem.Click += new System.EventHandler(this.small8PtToolStripMenuItem_Click);
             // 
@@ -197,31 +197,31 @@ namespace WindowsFormsApp1
             this.mediumToolStripMenuItem,
             this.narrowToolStripMenuItem});
             this.lineWidthToolStripMenuItem.Name = "lineWidthToolStripMenuItem";
-            this.lineWidthToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.lineWidthToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.lineWidthToolStripMenuItem.Text = "Line Width";
             // 
             // wideToolStripMenuItem
             // 
             this.wideToolStripMenuItem.Name = "wideToolStripMenuItem";
-            this.wideToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.wideToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.wideToolStripMenuItem.Text = "Wide (4 pixels)";
             // 
             // mediumToolStripMenuItem
             // 
             this.mediumToolStripMenuItem.Name = "mediumToolStripMenuItem";
-            this.mediumToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.mediumToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.mediumToolStripMenuItem.Text = "Medium (2 pixels)";
             // 
             // narrowToolStripMenuItem
             // 
             this.narrowToolStripMenuItem.Name = "narrowToolStripMenuItem";
-            this.narrowToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.narrowToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.narrowToolStripMenuItem.Text = "Narrow (1 pixel)";
             // 
             // autoscaleToolStripMenuItem
             // 
             this.autoscaleToolStripMenuItem.Name = "autoscaleToolStripMenuItem";
-            this.autoscaleToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.autoscaleToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.autoscaleToolStripMenuItem.Text = "Autoscale";
             // 
             // panZoomToolStripMenuItem
@@ -230,21 +230,21 @@ namespace WindowsFormsApp1
             this.zoomToolStripMenuItem,
             this.panToolStripMenuItem});
             this.panZoomToolStripMenuItem.Name = "panZoomToolStripMenuItem";
-            this.panZoomToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.panZoomToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.panZoomToolStripMenuItem.Text = "Pan/Zoom";
             // 
             // zoomToolStripMenuItem
             // 
             this.zoomToolStripMenuItem.CheckOnClick = true;
             this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
-            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(162, 34);
             this.zoomToolStripMenuItem.Text = "Zoom";
             // 
             // panToolStripMenuItem
             // 
             this.panToolStripMenuItem.CheckOnClick = true;
             this.panToolStripMenuItem.Name = "panToolStripMenuItem";
-            this.panToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
+            this.panToolStripMenuItem.Size = new System.Drawing.Size(162, 34);
             this.panToolStripMenuItem.Text = "Pan";
             // 
             // networkToolStripMenuItem
@@ -254,7 +254,7 @@ namespace WindowsFormsApp1
             this.decimalPlacesForMonitoringToolStripMenuItem,
             this.beliefDecisionModeToolStripMenuItem});
             this.networkToolStripMenuItem.Name = "networkToolStripMenuItem";
-            this.networkToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.networkToolStripMenuItem.Size = new System.Drawing.Size(164, 29);
             this.networkToolStripMenuItem.Text = "Network Options";
             // 
             // queryModesToolStripMenuItem
@@ -264,21 +264,21 @@ namespace WindowsFormsApp1
             this.verboseToolStripMenuItem,
             this.promptToolStripMenuItem});
             this.queryModesToolStripMenuItem.Name = "queryModesToolStripMenuItem";
-            this.queryModesToolStripMenuItem.Size = new System.Drawing.Size(293, 26);
+            this.queryModesToolStripMenuItem.Size = new System.Drawing.Size(352, 34);
             this.queryModesToolStripMenuItem.Text = "Query Modes";
             // 
             // briefToolStripMenuItem
             // 
             this.briefToolStripMenuItem.CheckOnClick = true;
             this.briefToolStripMenuItem.Name = "briefToolStripMenuItem";
-            this.briefToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.briefToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
             this.briefToolStripMenuItem.Text = "Brief Query Modes";
             // 
             // verboseToolStripMenuItem
             // 
             this.verboseToolStripMenuItem.CheckOnClick = true;
             this.verboseToolStripMenuItem.Name = "verboseToolStripMenuItem";
-            this.verboseToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.verboseToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
             this.verboseToolStripMenuItem.Text = "Verbose Query Modes";
             this.verboseToolStripMenuItem.Click += new System.EventHandler(this.verboseToolStripMenuItem_Click);
             // 
@@ -286,7 +286,7 @@ namespace WindowsFormsApp1
             // 
             this.promptToolStripMenuItem.CheckOnClick = true;
             this.promptToolStripMenuItem.Name = "promptToolStripMenuItem";
-            this.promptToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.promptToolStripMenuItem.Size = new System.Drawing.Size(291, 34);
             this.promptToolStripMenuItem.Text = "Prompt Query Modes";
             // 
             // decimalPlacesForMonitoringToolStripMenuItem
@@ -298,42 +298,42 @@ namespace WindowsFormsApp1
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.decimalPlacesForMonitoringToolStripMenuItem.Name = "decimalPlacesForMonitoringToolStripMenuItem";
-            this.decimalPlacesForMonitoringToolStripMenuItem.Size = new System.Drawing.Size(293, 26);
+            this.decimalPlacesForMonitoringToolStripMenuItem.Size = new System.Drawing.Size(352, 34);
             this.decimalPlacesForMonitoringToolStripMenuItem.Text = "Decimal Places for Monitoring";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.CheckOnClick = true;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(100, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 34);
             this.toolStripMenuItem2.Text = "1";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.CheckOnClick = true;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(100, 26);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(124, 34);
             this.toolStripMenuItem3.Text = "2";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.CheckOnClick = true;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(100, 26);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(124, 34);
             this.toolStripMenuItem4.Text = "3";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.CheckOnClick = true;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(100, 26);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(124, 34);
             this.toolStripMenuItem5.Text = "4";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.CheckOnClick = true;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(100, 26);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(124, 34);
             this.toolStripMenuItem6.Text = "5";
             // 
             // beliefDecisionModeToolStripMenuItem
@@ -342,21 +342,21 @@ namespace WindowsFormsApp1
             this.beliefToolStripMenuItem,
             this.decisionNetworkModeToolStripMenuItem});
             this.beliefDecisionModeToolStripMenuItem.Name = "beliefDecisionModeToolStripMenuItem";
-            this.beliefDecisionModeToolStripMenuItem.Size = new System.Drawing.Size(293, 26);
+            this.beliefDecisionModeToolStripMenuItem.Size = new System.Drawing.Size(352, 34);
             this.beliefDecisionModeToolStripMenuItem.Text = "Belief/Decision Mode";
             // 
             // beliefToolStripMenuItem
             // 
             this.beliefToolStripMenuItem.CheckOnClick = true;
             this.beliefToolStripMenuItem.Name = "beliefToolStripMenuItem";
-            this.beliefToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.beliefToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.beliefToolStripMenuItem.Text = "Belief Network Mode";
             // 
             // decisionNetworkModeToolStripMenuItem
             // 
             this.decisionNetworkModeToolStripMenuItem.CheckOnClick = true;
             this.decisionNetworkModeToolStripMenuItem.Name = "decisionNetworkModeToolStripMenuItem";
-            this.decisionNetworkModeToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.decisionNetworkModeToolStripMenuItem.Size = new System.Drawing.Size(305, 34);
             this.decisionNetworkModeToolStripMenuItem.Text = "Decision Network Mode";
             // 
             // helpToolStripMenuItem
@@ -367,36 +367,37 @@ namespace WindowsFormsApp1
             this.onlineTutorialsToolStripMenuItem,
             this.aboutThisToolToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // legendForNodesEdgesToolStripMenuItem
             // 
             this.legendForNodesEdgesToolStripMenuItem.Name = "legendForNodesEdgesToolStripMenuItem";
-            this.legendForNodesEdgesToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.legendForNodesEdgesToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.legendForNodesEdgesToolStripMenuItem.Text = "Legend for Nodes/Edges";
             // 
             // onlineHelpToolStripMenuItem
             // 
             this.onlineHelpToolStripMenuItem.Name = "onlineHelpToolStripMenuItem";
-            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.onlineHelpToolStripMenuItem.Text = "Online Help";
             // 
             // onlineTutorialsToolStripMenuItem
             // 
             this.onlineTutorialsToolStripMenuItem.Name = "onlineTutorialsToolStripMenuItem";
-            this.onlineTutorialsToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.onlineTutorialsToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.onlineTutorialsToolStripMenuItem.Text = "Online Tutorials";
             // 
             // aboutThisToolToolStripMenuItem
             // 
             this.aboutThisToolToolStripMenuItem.Name = "aboutThisToolToolStripMenuItem";
-            this.aboutThisToolToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
+            this.aboutThisToolToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.aboutThisToolToolStripMenuItem.Text = "About this Tool";
             this.aboutThisToolToolStripMenuItem.Click += new System.EventHandler(this.about_Click);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -406,16 +407,17 @@ namespace WindowsFormsApp1
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1240, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1395, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 42);
+            this.button1.Location = new System.Drawing.Point(29, 52);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 67);
+            this.button1.Size = new System.Drawing.Size(161, 84);
             this.button1.TabIndex = 1;
             this.button1.Text = "Make Observation";
             this.button1.UseVisualStyleBackColor = true;
@@ -423,18 +425,21 @@ namespace WindowsFormsApp1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(244, 42);
+            this.button2.Location = new System.Drawing.Point(274, 52);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 72);
+            this.button2.Size = new System.Drawing.Size(161, 90);
             this.button2.TabIndex = 2;
             this.button2.Text = "Query";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Query_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(467, 42);
+            this.button3.Location = new System.Drawing.Point(525, 52);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 72);
+            this.button3.Size = new System.Drawing.Size(161, 90);
             this.button3.TabIndex = 3;
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = true;
@@ -442,9 +447,9 @@ namespace WindowsFormsApp1
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 694);
+            this.ClientSize = new System.Drawing.Size(1395, 868);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
