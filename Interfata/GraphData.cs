@@ -32,74 +32,24 @@ namespace WindowsFormsApp1
                 string.Join("\t\n\t", node.probabilities.Select(elem => $"{elem.Da:F2}\t{elem.Nu:F2}")) : "None";
 
             return $"{name}{parents} \tT\t F \n\t{probabilities}\n";
-        }
-
-        public void CalculateProbability(Dictionary<string, string> _nodeValues, GraphData _graphData)
+        }   
+        private void CalculateNodeProbability(Node node, Dictionary<string, string> _nodeValues, GraphData _graphData)
         {
-            string result = "";
-
-            // Save the initial state of all nodes' probabilities in a temporary list
-            var tempProbabilities = new Dictionary<string, List<Probability>>();
-
-            // Create a copy of the probabilities for all nodes
-            foreach (var node in _graphData.Nodes)
+            // verificam daca nodul este vizibil
+            if (_nodeValues.ContainsKey(node.name))
             {
-                tempProbabilities[node.name] = new List<Probability>();
-                foreach (var prob in node.probabilities)
-                {
-                    tempProbabilities[node.name].Add(new Probability { Da = prob.Da, Nu = prob.Nu });
-                }
+                return;
             }
 
-            // Iterate through all nodes to update their values based on _nodeValues (T or F)
-            foreach (var node in _graphData.Nodes)
-            {
-                if (_nodeValues.ContainsKey(node.name))
-                {
-                    if (_nodeValues[node.name] == "T")
-                    {
-                        node.probabilities[0].Da = 1.0;
-                        node.probabilities[0].Nu = 0.0;
-                    }
-                    else if (_nodeValues[node.name] == "F")
-                    {
-                        node.probabilities[0].Da = 0.0;
-                        node.probabilities[0].Nu = 1.0;
-                    }
-                }
-            }
-
-            // Now calculate the probabilities for each node, considering parents and ancestors
-            foreach (var node in _graphData.Nodes)
-            {
-                CalculateNodeProbability(node, _graphData);
-            }
-
-            // Output for debugging
-            foreach (var node in _graphData.Nodes)
-            {
-                result += $"{node.name} : P(T) = {node.probabilities[0].Da:F4} \t P(F) = {node.probabilities[0].Nu:F4}\n";
-            }
-
-            MessageBox.Show(result);
-
-            // Restore the initial probabilities for all nodes
-            foreach (var node in _graphData.Nodes)
-            {
-                node.probabilities = tempProbabilities[node.name];
-            }
-        }
-
-        private void CalculateNodeProbability(Node node, GraphData _graphData)
-        {
-            // Cazul fără părinți
+            // Cazul fara parinti
             if (node.parents.Count == 0)
             {
                 // Already handled in the previous iteration over nodes
-                return;
+                return; 
             }
-            // Cazul cu un singur părinte
-            else if (node.parents.Count == 1)
+
+            // Cazul cu un singur parinte
+            if (node.parents.Count == 1)
             {
                 string parentName = node.parents[0];
                 Node parentNode = _graphData.Nodes.First(n => n.name == parentName);
@@ -113,7 +63,8 @@ namespace WindowsFormsApp1
                 node.probabilities[0].Da = probTrue;
                 node.probabilities[0].Nu = probFalse;
             }
-            // Cazul cu doi părinți
+
+            // Cazul cu doi parinti
             else if (node.parents.Count == 2)
             {
                 string parent1Name = node.parents[0];
@@ -144,8 +95,80 @@ namespace WindowsFormsApp1
             foreach (var ancestorName in node.parents)
             {
                 Node ancestorNode = _graphData.Nodes.First(n => n.name == ancestorName);
-                CalculateNodeProbability(ancestorNode, _graphData);
+                CalculateNodeProbability(ancestorNode, _nodeValues, _graphData);
             }
+        }
+
+        public void CalculateProbability(Dictionary<string, string> _nodeValues, GraphData _graphData)
+        {
+            string result = "";
+
+            // Iterate through all nodes to update their values based on _nodeValues (T or F)
+            foreach (var node in _graphData.Nodes)
+            {
+                if (_nodeValues.ContainsKey(node.name))
+                {
+                    string observedValue = _nodeValues[node.name];
+                    if (observedValue == "T")
+                    {
+                        node.probabilities[0].Da = 1.0; 
+                        node.probabilities[0].Nu = 0.0;
+                    }
+                    else if (observedValue == "F")
+                    {
+                        node.probabilities[0].Da = 0.0; 
+                        node.probabilities[0].Nu = 1.0;
+                    }
+                    continue; 
+                }
+            }
+
+            var sortedNodes = TopologicalSort(_graphData.Nodes);
+
+            foreach (var node in sortedNodes)
+            {
+                if (_nodeValues.ContainsKey(node.name)) continue; 
+
+                CalculateNodeProbability(node, _nodeValues, _graphData);
+            }
+
+            // Output for debugging
+            foreach (var node in _graphData.Nodes)
+            {
+                result += $"{node.name} : P(T) = {node.probabilities[0].Da:F4} \t P(F) = {node.probabilities[0].Nu:F4}\n";
+            }
+
+            MessageBox.Show(result);
+        }
+
+        private List<Node> TopologicalSort(List<Node> nodes)
+        {
+            var sorted = new List<Node>();
+            var visited = new HashSet<Node>();
+
+            void Visit(Node node)
+            {
+                if (!visited.Contains(node))
+                {
+                    visited.Add(node);
+                    foreach (var parentName in node.parents)
+                    {
+                        var parentNode = nodes.FirstOrDefault(n => n.name == parentName);
+                        if (parentNode != null)
+                        {
+                            Visit(parentNode);
+                        }
+                    }
+                    sorted.Add(node);
+                }
+            }
+
+            foreach (var node in nodes)
+            {
+                Visit(node);
+            }
+
+            return sorted;
         }
     }
 }

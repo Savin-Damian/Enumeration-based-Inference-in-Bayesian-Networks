@@ -86,6 +86,8 @@ namespace WindowsFormsApp1
         {
             _queryClicked = true;
             _button1Clicked = false;
+
+            _graphData.CalculateProbability(_nodeValues, _graphData);
         }
 
         private void viewEditToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,6 +188,17 @@ namespace WindowsFormsApp1
                 else
                 {
                     _nodeValues.Add(node.name, selectedValue);
+                }
+
+                if (selectedValue == "T")
+                {
+                    node.probabilities[0].Da = 1.0; 
+                    node.probabilities[0].Nu = 0.0; 
+                }
+                else if (selectedValue == "F")
+                {
+                    node.probabilities[0].Da = 0.0; 
+                    node.probabilities[0].Nu = 1.0; 
                 }
 
                 MessageBox.Show($"Valoare selectata pentru nodul '{node.name}':  {selectedValue}");
