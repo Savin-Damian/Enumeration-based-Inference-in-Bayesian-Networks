@@ -18,12 +18,11 @@ namespace WindowsFormsApp1
             }
             else
             {
-                MessageBox.Show(NodeInfoFormat(node)); // Display node's details
+                MessageBox.Show(NodeInfoFormat(node)); // afisam datele nodului
             }
         }
 
-        // return formatted node information
-        public string NodeInfoFormat(Node node)
+        private string NodeInfoFormat(Node node)
         {
             var name = node.name != null ? ($"Name: {node.name}") + "\n" : "None";
             var parents = node.parents.Count() != 0 ? 
@@ -44,7 +43,6 @@ namespace WindowsFormsApp1
             // Cazul fara parinti
             if (node.parents.Count == 0)
             {
-                // Already handled in the previous iteration over nodes
                 return; 
             }
 
@@ -91,7 +89,7 @@ namespace WindowsFormsApp1
                 node.probabilities[0].Nu = probFalse;
             }
 
-            // Recursively calculate probabilities for all ancestors of this node
+            // calculam recursiv probabilitatea pentru toti stramosii
             foreach (var ancestorName in node.parents)
             {
                 Node ancestorNode = _graphData.Nodes.First(n => n.name == ancestorName);
@@ -99,11 +97,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void CalculateProbability(Dictionary<string, string> _nodeValues, GraphData _graphData)
+        public void CalculateProbability(Node nodeQuery, Dictionary<string, string> _nodeValues, GraphData _graphData)
         {
-            string result = "";
-
-            // Iterate through all nodes to update their values based on _nodeValues (T or F)
+            // iteram prin toate nodurile ca sa setam valorile de T \ F
             foreach (var node in _graphData.Nodes)
             {
                 if (_nodeValues.ContainsKey(node.name))
@@ -132,13 +128,19 @@ namespace WindowsFormsApp1
                 CalculateNodeProbability(node, _nodeValues, _graphData);
             }
 
-            // Output for debugging
+            MessageBox.Show(ShowNode(nodeQuery, _graphData));
+        }
+
+        private string ShowNode(Node nodeQuery, GraphData _graphData)
+        {
+            var result = "";
+            
             foreach (var node in _graphData.Nodes)
-            {
+            {   
+                if(node.name == nodeQuery.name)
                 result += $"{node.name} : P(T) = {node.probabilities[0].Da:F4} \t P(F) = {node.probabilities[0].Nu:F4}\n";
             }
-
-            MessageBox.Show(result);
+            return result;
         }
 
         private List<Node> TopologicalSort(List<Node> nodes)

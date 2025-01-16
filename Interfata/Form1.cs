@@ -14,10 +14,10 @@ namespace WindowsFormsApp1
         private GraphData _graphData;
         private GraphRenderer _graphRenderer = new GraphRenderer();
 
-        private Dictionary<string, string> _nodeValues = new Dictionary<string, string>(); // to check T / F / <none> for every node
-        public Dictionary<string, Rectangle> nodeBounds = new Dictionary<string, Rectangle>(); // to show info of every node
-        private bool _button1Clicked = false;
-        private bool _queryClicked = false;
+        private Dictionary<string, string> _nodeValues = new Dictionary<string, string>(); // T / F / <none> pentru fiecare nod
+        public Dictionary<string, Rectangle> nodeBounds = new Dictionary<string, Rectangle>(); // informatii despre fiecare nod
+        private bool _observationButton = false;
+        private bool _queryClick = false;
 
         public Form1()
         {
@@ -30,8 +30,6 @@ namespace WindowsFormsApp1
             this.Controls.Add(_pictureBox);
             _pictureBox.MouseClick += mouseClick;
         }
-
-        
 
         private void mouseClick(object sender, MouseEventArgs e)
         {
@@ -51,25 +49,22 @@ namespace WindowsFormsApp1
             {
                 if (kvp.Value.Contains(e.Location))
                 {
-                    // Find the node by name
+                    // cautam nodul dupa nume
                     var node = _graphData.Nodes.FirstOrDefault(n => n.name == kvp.Key);
 
                     if (node != null)
                     {
-                        if (_button1Clicked)
+                        if (_observationButton)
                         {
                             ShowMenu(node, e.Location); 
                         }
+                        else if (_queryClick)
+                        {
+                            _graphData.CalculateProbability(node, _nodeValues, _graphData);
+                        }
                         else
                         {
-                            if (_queryClicked)
-                            {
-                                _graphData.CalculateProbability(_nodeValues, _graphData);
-                            }
-                            else
-                            {
-                                _graphData.ShowInfo(node); // Call ShowInfo on the clicked node
-                            }
+                            _graphData.ShowInfo(node);
                         }
                     }
                     else
@@ -84,15 +79,8 @@ namespace WindowsFormsApp1
 
         private void Query_Click(object sender, EventArgs e)
         {
-            _queryClicked = true;
-            _button1Clicked = false;
-
-            _graphData.CalculateProbability(_nodeValues, _graphData);
-        }
-
-        private void viewEditToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
+            _observationButton = false;
+            _queryClick = !_queryClick;
         }
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,11 +94,6 @@ namespace WindowsFormsApp1
         }
 
         private void small8PtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void verboseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
         }
@@ -200,46 +183,7 @@ namespace WindowsFormsApp1
                     node.probabilities[0].Da = 0.0; 
                     node.probabilities[0].Nu = 1.0; 
                 }
-
-                MessageBox.Show($"Valoare selectata pentru nodul '{node.name}':  {selectedValue}");
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            _button1Clicked = true;
-            if (_graphData == null || _graphData.Nodes == null)
-            {
-                MessageBox.Show("Graph data is not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string result = "Node values:\n";
-            foreach (var node in _graphData.Nodes)
-            {
-                string value = _nodeValues.ContainsKey(node.name) ? _nodeValues[node.name] : "<not set>";
-                result += $"Node: {node.name}, Value: {value}\n";
-            }
-
-            MessageBox.Show(result, "Node Values", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            _button1Clicked = false;
-            if (_graphData == null || _graphData.Nodes == null)
-            {
-                MessageBox.Show("Graph data is not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            foreach (var node in _graphData.Nodes)
-            {
-                _nodeValues[node.name] = "<not set>";
-            }
-            MessageBox.Show("S-au resetat valorile cu succes! \n");
-
         }
 
         private void quit_Click(object sender, EventArgs e)
@@ -252,5 +196,75 @@ namespace WindowsFormsApp1
             MessageBox.Show("Artificial Intelligence\n Copyright \n Savin Damian \n Spiridon Ioan \n 1406A");
         }
 
+        private void makeObservation_Click(object sender, EventArgs e)
+        {
+            _queryClick = false;
+            _observationButton = !_observationButton;
+            if (_graphData == null || _graphData.Nodes == null)
+            {
+                MessageBox.Show("Graph data is not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string result = "Node values:\n";
+            foreach (var node in _graphData.Nodes)
+            {
+                string value = _nodeValues.ContainsKey(node.name) ? _nodeValues[node.name] : "<none>";
+                result += $"Node: {node.name}, Value: {value}\n";
+            }
+            if (_observationButton == false)
+                MessageBox.Show(result, "Node Values", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            _observationButton = false;
+            if (_graphData == null || _graphData.Nodes == null)
+            {
+                MessageBox.Show("Graph data is not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            foreach (var node in _graphData.Nodes)
+            {
+                _nodeValues[node.name] = "<none>";
+            }
+            MessageBox.Show("S-au resetat valorile cu succes! \n");
+        }
+
+        private void saveProblem_Click(object sender, EventArgs e)
+        {
+            if (_graphData == null || _graphData.Nodes == null)
+            {
+                MessageBox.Show("Graph data is not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+                saveFileDialog.Title = "Save Graph Data";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = saveFileDialog.FileName;
+
+                    try
+                    {
+                        // Serialize GraphData to JSON
+                        var jsonData = JsonConvert.SerializeObject(_graphData, Formatting.Indented);
+
+                        // Save JSON to the selected file
+                        System.IO.File.WriteAllText(filePath, jsonData);
+
+                        MessageBox.Show("Graph data saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error saving file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
