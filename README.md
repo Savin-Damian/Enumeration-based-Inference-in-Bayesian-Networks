@@ -66,18 +66,26 @@ The CalculateNodeProbability method ensures the recursive calculation of probabi
 
 The first stage of this project involved implementing the functionality to load the Bayesian network from a JSON file into the user interface, providing an attractive and intuitive graphical design that allows the user to visualize the structure of nodes and connections. Additionally, the option to view the probability table was also implemented, which can be accessed by clicking on each node.
 
-![Screenshot_7](https://github.com/user-attachments/assets/2784169d-7b9a-409e-90a4-b0d3b9923e61)
+<p align ="center">
+    <img src="https://github.com/user-attachments/assets/2784169d-7b9a-409e-90a4-b0d3b9923e61" alt="bayesian network">
+</p>
 
 The project continued with the development of the option to make observations for each individual node, as well as the implementation of an option to reset the changes made by the user.
 
-![Screenshot_8](https://github.com/user-attachments/assets/0653b5a7-bd5f-48b9-a1b7-5a1864a71881)
+<p align ="center">
+    <img src="https://github.com/user-attachments/assets/0653b5a7-bd5f-48b9-a1b7-5a1864a71881" alt="bayesian observer">
+</p>
 
 The project was completed with the introduction of the final feature, which is also the core functionality, allowing us to calculate the desired probabilities based on the set nodes.
 
 In the images below, you can observe the functionality described above implemented.
 
-![Screenshot_9](https://github.com/user-attachments/assets/bcb09fab-4cd2-489f-92d0-10f658f7267b)
+<p align ="center">
+    <img src="https://github.com/user-attachments/assets/bcb09fab-4cd2-489f-92d0-10f658f7267b" alt="bayesian probabilistic">
+</p>
 
 The probability result was verified using the Belief and Decision Network Tool.
 
-![Screenshot_10](https://github.com/user-attachments/assets/2029f4d8-095f-453c-9831-5fd646fa3c12)
+<p align ="center">
+    <img src="https://github.com/user-attachments/assets/2029f4d8-095f-453c-9831-5fd646fa3c12" alt="bayesian result">
+</p>
