@@ -34,24 +34,15 @@ The ENUMERATE-ALL function
 
 ### Theoretical Aspects
 
-Probabilistic Model: 
-
-The algorithm uses the chain rule from probability theory.
-
-Enumeration Inference: 
-
-The algorithm calculates the exact conditional probability, but it may become inefficient for large networks, as it enumerates all possible combinations of variables.
-
-Normalization: 
-
-After calculating the raw probabilities for all values of X, the result is normalized so that it represents a valid probability distribution.
-
-Evidence and Hidden Variables:
-
-Evidence variables E: variables with known (observed) values.
-
-Hidden variables: 
-All other variables in the network, for which marginal summation must be performed.
-
-Recursion: 
-The algorithm is recursive: ENUMERATE-ALL processes the variables one by one, propagating probabilities from parent variables to descendant variables.
+- Probabilistic Model: 
+  - The algorithm uses the chain rule from probability theory.
+- Enumeration Inference: 
+  - The algorithm calculates the exact conditional probability, but it may become inefficient for large networks, as it enumerates all possible combinations of variables.
+- Normalization: 
+  - After calculating the raw probabilities for all values of X, the result is normalized so that it represents a valid probability distribution.
+- Evidence and Hidden Variables:
+  - Evidence variables E: variables with known (observed) values.
+- Hidden variables: 
+  - All other variables in the network, for which marginal summation must be performed.
+- Recursion: 
+  - The algorithm is recursive: ENUMERATE-ALL processes the variables one by one, propagating probabilities from parent variables to descendant variables.
