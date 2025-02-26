@@ -46,3 +46,18 @@ The ENUMERATE-ALL function
   - All other variables in the network, for which marginal summation must be performed.
 - Recursion: 
   - The algorithm is recursive: ENUMERATE-ALL processes the variables one by one, propagating probabilities from parent variables to descendant variables.
+ 
+## Solution Method
+
+The implementation method is intended for managing and processing data from the graph, displaying information about nodes, and recursively calculating probabilities.
+
+Thus, the calculation of probabilities is based on the following conditions:
+- Depending on the number of parents:
+  - No parents: probabilities remain unchanged.
+  - One parent: the probabilities of the node are calculated based on the parent's values.  
+  - Two parents: the probabilities are calculated using combinations of the probabilities of the two parents.
+
+The CalculateNodeProbability method ensures the recursive calculation of probabilities for the node and all of its ancestors.
+- If a node has an observed value (T or F), the probabilities are set directly: 100% for the observed value and 0% for the other value.
+- To calculate the probabilities in the correct order, the nodes are topologically sorted (TopologicalSort). This ensures that the nodes are processed only after their parents have been calculated.
+- The CalculateProbability method determines the probabilities for a target node (nodeQuery), starting from the initial probabilities and propagating the effects throughout the graph.
